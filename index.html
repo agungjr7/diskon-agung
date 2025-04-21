@@ -105,7 +105,7 @@
       }
 
       if (diskon < 0 || diskon > 100) {
-        alert('Diskon harus antara 0 dan 100!');
+        alert('Diskon harus antara 0 - 100!');
         return;
       }
 
@@ -115,7 +115,7 @@
       hasilDiv.innerHTML = `
         <h5 class="text-success fw-bold"> Hasil Perhitungan:</h5>
         <p> Harga Awal: <strong> ${formatRupiah(harga)}</strong></p>
-        <p> Diskon ${diskon}%: <strong>Rp ${formatRupiah(nilaiDiskon)}</strong></p>
+        <p> Diskon ${diskon}%: <strong> ${formatRupiah(nilaiDiskon)}</strong></p>
         <p> Total Setelah Diskon: <strong class="text-danger"> ${formatRupiah(totalHarga)}</strong></p>
       `;
       hasilDiv.classList.remove('d-none');
