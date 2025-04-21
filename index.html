@@ -8,12 +8,14 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
     :root {
-      --bg-color: #fceabb;
-      --gradient-color: #f8b500;
-      --text-color: #2c3e50;
-      --form-bg: #ffffffcc;
-      --hasil-bg: #ffffffb2;
-      --border-left: #f39c12;
+      --bg-color: #2D3342;
+      --gradient-color: #689F99;
+      --text-color: #2D3342;
+      --form-bg: #F5F8F9;
+      --hasil-bg: #ffffffcc;
+      --border-left: #689F99;
+      --button-bg: #689F99;
+      --button-hover: #4D7F78;
     }
 
     body.dark-mode {
@@ -23,6 +25,8 @@
       --form-bg: #2c3e50cc;
       --hasil-bg: #34495eb2;
       --border-left: #f1c40f;
+      --button-bg: #f39c12;
+      --button-hover: #d35400;
     }
 
     body {
@@ -46,12 +50,12 @@
     }
 
     .btn-primary {
-      background-color: #f39c12;
+      background-color: var(--button-bg);
       border: none;
     }
 
     .btn-primary:hover {
-      background-color: #d35400;
+      background-color: var(--button-hover);
     }
 
     .btn-danger {
@@ -117,8 +121,9 @@
             </div>
             <div class="mb-3">
               <label class="form-label">Diskon (%)</label>
-              <input type="text" id="diskon" class="form-control" placeholder="Masukkan Diskon" onkeypress="return event.charCode
-              >= 48 && event.charCode <= 57" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+              <input type="text" id="diskon" class="form-control" placeholder="Masukkan Diskon"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
             </div>
             <button type="submit" class="btn btn-primary w-100 mb-2">Hitung Sekarang</button>
             <button type="button" class="btn btn-danger w-100" id="hapusHasil">Hapus Hasil</button>
