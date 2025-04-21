@@ -104,7 +104,7 @@
         <div class="form-container">
           <!-- Toggle Dark Mode -->
           <div class="toggle-switch">
-            <button class="btn btn-secondary btn-sm" id="toggleMode">🌙 Dark Mode</button>
+            <button class="btn btn-secondary btn-sm" id="toggleMode"> Dark Mode</button>
           </div>
 
           <h2 class="title">Aplikasi Penghitung Diskon</h2>
@@ -118,7 +118,7 @@
             </div>
             <div class="mb-3">
               <label class="form-label">Diskon (%)</label>
-              <input type="text" id="diskon" maxlength="3" class="form-control" placeholder="Masukan Diskon" required
+              <input type="text" id="diskon" class="form-control" placeholder="Masukan Diskon" required
                 onkeypress="return event.charCode >= 48 && event.charCode <= 57">
             </div>
             <button type="submit" class="btn btn-primary w-100 mb-2">Hitung Sekarang</button>
@@ -182,9 +182,9 @@
     toggleBtn.addEventListener('click', function () {
       document.body.classList.toggle('dark-mode');
       if (document.body.classList.contains('dark-mode')) {
-        toggleBtn.innerHTML = '☀️ Light Mode';
+        toggleBtn.innerHTML = 'Light Mode';
       } else {
-        toggleBtn.innerHTML = '🌙 Dark Mode';
+        toggleBtn.innerHTML = 'Dark Mode';
       }
     });
   </script>
