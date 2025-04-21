@@ -104,7 +104,7 @@
         <div class="form-container">
           <!-- Toggle Dark Mode -->
           <div class="toggle-switch">
-            <button class="btn btn-secondary btn-sm" id="toggleMode"> Dark Mode</button>
+            <button class="btn btn-secondary btn-sm" id="toggleMode">Dark Mode</button>
           </div>
 
           <h2 class="title">Aplikasi Penghitung Diskon</h2>
@@ -137,27 +137,44 @@
     document.getElementById('formDiskon').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const harga = parseFloat(document.getElementById('harga').value);
-      const diskon = parseFloat(document.getElementById('diskon').value);
+      const hargaInput = document.getElementById('harga');
+      const diskonInput = document.getElementById('diskon');
+      const harga = hargaInput.value.trim();
+      const diskon = diskonInput.value.trim();
       const hasilDiv = document.getElementById('hasil');
 
-      if (harga < 0) {
+      if (harga === '') {
+        alert('Harap isi harga!');
+        hargaInput.focus();
+        return;
+      }
+
+      if (diskon === '') {
+        alert('Harap isi diskon!');
+        diskonInput.focus();
+        return;
+      }
+
+      const hargaNumber = parseFloat(harga);
+      const diskonNumber = parseFloat(diskon);
+
+      if (hargaNumber < 0) {
         alert('Harga tidak boleh negatif!');
         return;
       }
 
-      if (diskon < 0 || diskon > 100) {
+      if (diskonNumber < 0 || diskonNumber > 100) {
         alert('Diskon harus antara 0 - 100!');
         return;
       }
 
-      const nilaiDiskon = harga * (diskon / 100);
-      const totalHarga = harga - nilaiDiskon;
+      const nilaiDiskon = hargaNumber * (diskonNumber / 100);
+      const totalHarga = hargaNumber - nilaiDiskon;
 
       hasilDiv.innerHTML = `
         <h5 class="text-success fw-bold">Hasil Perhitungan:</h5>
-        <p>Harga Awal: <strong>${formatRupiah(harga)}</strong></p>
-        <p>Diskon ${diskon}%: <strong>${formatRupiah(nilaiDiskon)}</strong></p>
+        <p>Harga Awal: <strong>${formatRupiah(hargaNumber)}</strong></p>
+        <p>Diskon ${diskonNumber}%: <strong>${formatRupiah(nilaiDiskon)}</strong></p>
         <p>Total Setelah Diskon: <strong class="text-danger">${formatRupiah(totalHarga)}</strong></p>
       `;
       hasilDiv.classList.remove('d-none');
