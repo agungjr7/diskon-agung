@@ -160,9 +160,18 @@
         Swal.fire({
           icon: 'error',
           title: 'Invalid Input',
-          text: 'Diskon tidak boleh negatif!'
+          text: 'Diskon harus 0-100!'
+        });
+        
+        return;
+         if (Diskon < 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid Input',
+          text: 'Harga tidak boleh negatif!'
         });
         return;
+      }
       }
 
       const nilaiDiskon = hargaNumber * (diskonNumber / 100);
