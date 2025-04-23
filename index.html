@@ -96,12 +96,12 @@
           <form id="formDiskon">
             <div class="mb-3">
               <label class="form-label">Harga Barang (Rp)</label>
-              <input type="number" id="harga" class="form-control" placeholder="Masukkan Harga" min="0">
+              <!-- Sudah diubah: min="0" dihapus -->
+              <input type="number" id="harga" class="form-control" placeholder="Masukkan Harga">
             </div>
             <div class="mb-3">
               <label class="form-label">Diskon (%)</label>
-              <input type="text" id="diskon" class="form-control" placeholder="Masukkan Diskon"
-                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+              <input type="number" id="diskon" class="form-control" placeholder="Masukkan Diskon" min="0" max="100">
             </div>
             <button type="submit" class="btn btn-primary w-100 mb-2">Hitung Sekarang</button>
             <button type="button" class="btn btn-danger w-100" id="hapusHasil">Hapus Hasil</button>
@@ -147,6 +147,26 @@
 
       const hargaNumber = parseFloat(harga);
       const diskonNumber = parseFloat(diskon);
+
+      if (isNaN(hargaNumber)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Input Salah',
+          text: 'Harga harus berupa angka!'
+        });
+        hargaInput.focus();
+        return;
+      }
+
+      if (isNaN(diskonNumber)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Input Salah',
+          text: 'Diskon harus berupa angka!'
+        });
+        diskonInput.focus();
+        return;
+      }
 
       if (hargaNumber < 0) {
         Swal.fire({
