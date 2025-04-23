@@ -128,7 +128,7 @@
 
       if (harga === '') {
         Swal.fire({
-          icon: 'warning',
+          icon: 'error',
           title: 'eitss',
           text: 'Harap isi harga ya!'
         });
@@ -138,7 +138,7 @@
 
       if (diskon === '') {
         Swal.fire({
-          icon: 'warning',
+          icon: 'error',
           title: 'eitss',
           text: 'Harap isi diskon ya!'
         });
@@ -151,7 +151,7 @@
 
       if (hargaNumber < 0) {
         Swal.fire({
-          icon: 'error',
+          icon: 'warning',
           title: 'Invalid Input',
           text: 'Harga tidak boleh negatif!'
         });
@@ -160,7 +160,7 @@
 
       if (diskonNumber < 0 || diskonNumber > 100) {
         Swal.fire({
-          icon: 'error',
+          icon: 'warning',
           title: 'Invalid Input',
           text: 'Diskon harus antara 0 - 100!'
         });
