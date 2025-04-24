@@ -95,13 +95,11 @@
           <form id="formDiskon">
             <div class="mb-3">
               <label class="form-label">Harga Barang (Rp)</label>
-              <input type="number" id="harga" class="form-control" placeholder="Masukkan Harga" 
-                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+              <input type="text" id="harga" class="form-control" placeholder="Masukkan Harga">
             </div>
             <div class="mb-3">
               <label class="form-label">Diskon (%)</label>
-              <input type="number" id="diskon" class="form-control" placeholder="Masukkan Diskon"
-                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+              <input type="text" id="diskon" class="form-control" placeholder="Masukkan Diskon">
             </div>
             <button type="submit" class="btn btn-primary w-100 mb-2">Hitung Sekarang</button>
             <button type="button" class="btn btn-danger w-100" id="hapusHasil">Hapus Hasil</button>
@@ -145,6 +143,25 @@
         return;
       }
 
+      const regexAngka = /^\d+&/ ;
+      if (!regexAngka.test(harga)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'eitss',
+          text: 'Harga tidak boleh huruf dan simbo!'
+        });
+        diskonInput.focus();
+        return;
+      }
+      if (!regexAngka.test(diskon)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'eitss',
+          text: 'diskon tidak boleh huruf dan simbo!'
+        });
+        diskonInput.focus();
+        return;
+        
       const hargaNumber = parseFloat(harga);
       const diskonNumber = parseFloat(diskon);
 
