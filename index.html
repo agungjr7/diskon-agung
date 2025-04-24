@@ -92,7 +92,6 @@
         <div class="form-container">
           <h2 class="title">Aplikasi Penghitung Diskon</h2>
           <p class="text-center text-muted mb-4">Hitung harga diskon dengan mudah!</p>
-
           <form id="formDiskon">
             <div class="mb-3">
               <label class="form-label">Harga Barang (Rp)</label>
@@ -148,15 +147,6 @@
 
       const hargaNumber = parseFloat(harga);
       const diskonNumber = parseFloat(diskon);
-
-      if (hargaNumber < 0) {
-        Swal.fire({
-          icon: 'warning',
-          title: 'Invalid Input',
-          text: 'Harga tidak boleh negatif!'
-        });
-        return;
-      }
 
       if (diskonNumber < 0 || diskonNumber > 100) {
         Swal.fire({
