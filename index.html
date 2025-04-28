@@ -95,8 +95,8 @@
 
           <form id="formDiskon">
              <div class="mb-3">
-              <label class="form-label">Nama Barang </label>
-              <input type="text" id="namaBarang" class="form-control" placeholder="Nama Harga">
+              <label class="form-label">Kode Barang </label>
+              <input type="text" id="kodeBarang" class="form-control" placeholder="Kode Barang">
             </div>
             <div class="mb-3">
               <label class="form-label">Harga Barang (Rp)</label>
@@ -122,10 +122,10 @@
     document.getElementById('formDiskon').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const namaBarangInput = document.getElementById('namaBarang');
+      const kodeBarangInput = document.getElementById('kodeBarang');
       const hargaInput = document.getElementById('harga');
       const diskonInput = document.getElementById('diskon');
-      const harga = namaBarangInput.value.trim();
+      const kodeBarang = kodeBarangInput.value.trim();
       const harga = hargaInput.value.trim();
       const diskon = diskonInput.value.trim();
       const hasilDiv = document.getElementById('hasil');
@@ -188,7 +188,7 @@
 
       hasilDiv.innerHTML = `
         <h5 class="text-success fw-bold">Hasil Perhitungan:</h5>
-        <p>Nama Barang: <strong>${namaBarang}</strong></p>
+        <p>Kode Barang: <strong>${kodeBarang}</strong></p>
         <p>Harga Awal: <strong>${formatRupiah(hargaNumber)}</strong></p>
         <p>Diskon ${diskonNumber}%: <strong>${formatRupiah(nilaiDiskon)}</strong></p>
         <p>Total Setelah Diskon: <strong class="text-danger">${formatRupiah(totalHarga)}</strong></p>
@@ -206,7 +206,7 @@
     document.getElementById('hapusHasil').addEventListener('click', function () {
       document.getElementById('hasil').innerHTML = '';
       document.getElementById('hasil').classList.add('d-none');
-      document.getElementById('namaBarang').value = '';
+      document.getElementById('kodeBarang').value = '';
       document.getElementById('harga').value = '';
       document.getElementById('diskon').value = '';
     });
