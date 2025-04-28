@@ -130,15 +130,6 @@
       const diskon = diskonInput.value.trim();
       const hasilDiv = document.getElementById('hasil');
 
-      if (kodeBarang === '') {
-        Swal.fire({
-          icon: 'error',
-          title: 'Ups!',
-          text: 'Kode barang harus diisi!'
-        });
-        namaBarangInput.focus();
-        return;
-      }
 
       if (harga === '') {
         Swal.fire({
